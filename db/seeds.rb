@@ -3,7 +3,7 @@ require 'csv'
 # Load All Merchants to DB
 puts "Merchants data is populating"
 merchants = []
-CSV.foreach("#{Rails.root}/lib/assets/merchants.csv", col_sep: ';', headers: true) do |row|
+CSV.foreach("#{Rails.root}/lib/merchants.csv", col_sep: ';', headers: true) do |row|
   merchants << {
     merchant_reference: row['reference'],
     email: row['email'],
@@ -19,7 +19,7 @@ Merchant.import(merchants)
 # Load All Orders to DB
 puts "Orders data is populating"
 orders = []
-CSV.foreach("#{Rails.root}/lib/assets/orders.csv", col_sep: ';', headers: true) do |row|
+CSV.foreach("#{Rails.root}/lib/orders.csv", col_sep: ';', headers: true) do |row|
   orders << {
     merchant_reference: row['merchant_reference'],
     amount: row['amount'].to_f.round(2),

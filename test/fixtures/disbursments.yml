@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commission: 1.5
+  merchant_payment: 1.5
+  order: one
+
+two:
+  commission: 1.5
+  merchant_payment: 1.5
+  order: two

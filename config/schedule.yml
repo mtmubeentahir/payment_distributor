@@ -1,0 +1,3 @@
+daily_job:
+  cron: "0 8 * * *"
+  class: "DisburseOrdersJob"

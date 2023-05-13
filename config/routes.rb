@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  require "sidekiq/web"
+  mount Sidekiq::Web => '/sidekiq'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :orders
+  resources :merchants
+  resources :disbursments, only: [:index]
+
+  get 'disbursment/process_orders', to: "disbursments#process_orders", as: 'process_orders'
+
+  root "disbursments#index"
 end

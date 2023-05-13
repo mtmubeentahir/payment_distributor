@@ -1,0 +1,29 @@
+<h1>Disbursments Report</h1>
+<%= button_to 'Refresh Page', disbursments_path, method: :get %> 
+<% if Disbursment.count < 5 || Disbursment.count > 390000 %>
+  <%= button_to 'Process Report', process_orders_path, method: :get %>
+<%end%>
+<table>
+  <thead>
+    <tr>
+      <th>Years</th>
+      <th>Number of disbursements</th>
+      <th>Amount disbursed to merchants</th>
+      <th>Amount of order fees</th>
+      <th>Number of monthly fees charged (From minimum monthly fee)</th>
+      <th>Amount of monthly fee charged (From minimum monthly fee)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @disbursments.each do |dis| %>
+      <tr>
+        <td><%= dis[0]&.to_i %></td>
+        <td><%= dis[1] %></td>
+        <td><%= dis[2]&.round(2) %></td>
+        <td><%= dis[3]&.round(2) %></td>
+        <td><%= dis[4] %></td>
+        <td><%= dis[5]&.round(2)  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

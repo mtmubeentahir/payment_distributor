@@ -1,0 +1,10 @@
+class CreateMonthlyFees < ActiveRecord::Migration[7.0]
+  def change
+    create_table :monthly_fees do |t|
+      t.float :amount
+      t.references :disbursment, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

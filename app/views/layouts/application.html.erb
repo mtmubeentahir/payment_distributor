@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to 'Report', '/' %></li>
+        <li><%= link_to 'Merchant', merchants_path %></li>
+        <li><%= link_to 'Order', orders_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

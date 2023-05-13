@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Merchants</h1>
+
+<div id="merchants">
+  <table>
+    <thead>
+      <tr>
+        <th>Merchant Reference</th>
+        <th>Email</th>
+        <th>Live ON</th>
+        <th>Frequency</th>
+        <th>Minimum Monthly Fee</th>
+        <th>Show</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @merchants.each do |merchant| %>
+        <tr>
+          <td><%= merchant.merchant_reference %></td>
+          <td><%= merchant.email %></td>
+          <td><%= merchant.live_on %></td>
+          <td><%= merchant.frequency %></td>
+          <td><%= merchant.minimum_monthly_fee %></td>
+          <td>  <%= link_to "Show this merchant", merchant %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New merchant", new_merchant_path %>

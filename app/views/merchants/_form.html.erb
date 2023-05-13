@@ -1,0 +1,42 @@
+<%= form_with(model: merchant) do |form| %>
+  <% if merchant.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(merchant.errors.count, "error") %> prohibited this merchant from being saved:</h2>
+
+      <ul>
+        <% merchant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :merchant_reference, style: "display: block" %>
+    <%= form.text_field :merchant_reference %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :live_on, style: "display: block" %>
+    <%= form.datetime_field :live_on %>
+  </div>
+
+  <div>
+    <%= form.label :frequency, style: "display: block" %>
+    <%= form.number_field :frequency %>
+  </div>
+
+  <div>
+    <%= form.label :minimum_monthly_fee, style: "display: block" %>
+    <%= form.text_field :minimum_monthly_fee %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
