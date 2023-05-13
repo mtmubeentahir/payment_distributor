@@ -13,7 +13,8 @@
 
   <div>
     <%= form.label :merchant_reference, style: "display: block" %>
-    <%= form.text_field :merchant_reference %>
+    <%= form.collection_select :merchant_reference, Merchant.order(:merchant_reference),:merchant_reference,:merchant_reference, include_blank: true %>
+
   </div>
 
   <div>
