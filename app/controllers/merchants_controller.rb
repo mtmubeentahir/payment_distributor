@@ -3,7 +3,7 @@ class MerchantsController < ApplicationController
 
   # GET /merchants or /merchants.json
   def index
-    @merchants = Merchant.all
+    @pagy, @merchants = pagy(Merchant.all, items: 10)
   end
 
   # GET /merchants/1 or /merchants/1.json

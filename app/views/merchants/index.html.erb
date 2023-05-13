@@ -6,6 +6,7 @@
   <table>
     <thead>
       <tr>
+        <th>ID</th>
         <th>Merchant Reference</th>
         <th>Email</th>
         <th>Live ON</th>
@@ -17,6 +18,7 @@
     <tbody>
       <% @merchants.each do |merchant| %>
         <tr>
+          <td><%= merchant.id %></td>
           <td><%= merchant.merchant_reference %></td>
           <td><%= merchant.email %></td>
           <td><%= merchant.live_on %></td>
@@ -28,5 +30,5 @@
     </tbody>
   </table>
 </div>
-
+<%== pagy_nav(@pagy) %>
 <%= link_to "New merchant", new_merchant_path %>

@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.first(10)
+    @pagy, @orders = pagy(Order.all, items: 10)
   end
 
   # GET /orders/1 or /orders/1.json

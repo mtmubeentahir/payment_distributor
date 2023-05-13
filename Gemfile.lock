@@ -132,6 +132,7 @@ GEM
     nokogiri (1.14.4)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    pagy (6.0.4)
     pg (1.5.3)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -233,6 +234,7 @@ DEPENDENCIES
   capybara
   importmap-rails
   jbuilder
+  pagy
   pg (~> 1.4)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
