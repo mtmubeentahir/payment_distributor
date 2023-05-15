@@ -8,8 +8,11 @@
       <tr>
         <th>ID</th>
         <th>Merchant Reference</th>
-        <th>Amount</th>
+        <th>Order Amount</th>
         <th>Created At</th>
+        <th>Company Commission</th>
+        <th>Merchant Payment</th>
+        <th>Monthly Fee Adjustment</th>
         <th>Show</th>
       </tr>
     </thead>
@@ -20,6 +23,9 @@
           <td><%= order.merchant_reference %></td>
           <td><%= order.amount %></td>
           <td><%= order.created_at %></td>
+          <td><%= order&.disbursment&.commission %></td>
+          <td><%= order&.disbursment&.merchant_payment %></td>
+          <td><%= order&.disbursment&.monthly_fee&.amount %></td>
           <td> <%= link_to "Show this order", order %> </td>
         </tr>
       <% end %>

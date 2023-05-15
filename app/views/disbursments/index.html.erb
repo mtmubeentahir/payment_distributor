@@ -1,6 +1,6 @@
 <h1>Disbursments Report</h1>
 <%= button_to 'Refresh Page', disbursments_path, method: :get %> 
-<% if Disbursment.count < 5 || Disbursment.count > 390000 %>
+<% if Disbursment.count < 1 || Disbursment.count > 390000 %>
   <%= button_to 'Process Report', process_orders_path, method: :get %>
 <%end%>
 <table>
