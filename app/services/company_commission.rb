@@ -5,7 +5,7 @@ class CompanyCommission
 
   def self.calculate(_amount)
     amount = _amount.to_f
-    return if amount < 0
+    return 0.0 if amount < 0
 
     res = if amount < 50
             amount * FIRST_PERCENT

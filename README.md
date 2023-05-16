@@ -32,7 +32,7 @@ Seeding is important, it will take time to load data into database from the CSV
 ```ruby
 bundle exec rake db:create
 bundle exec rake db:migrate
-bundle exec rake db:seed   #this is important
+bundle exec rake db:seed   #this is important, it might take 3 to 5 minutes while processing the CSV
 ```
 
 ##### 4. Start the Rails server

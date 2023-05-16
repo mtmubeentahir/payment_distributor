@@ -9,27 +9,20 @@ class DisbursmentsController < ApplicationController
 
   private
   def query
-    sql = "SELECT
-      EXTRACT(year from o.created_at) AS year, 
-      Count(d.id),
-      SUM(d.merchant_payment),
-      SUM(o.amount),
-      Count(m.id),
-      SUM(m.amount)
-    FROM  orders AS o
-    JOIN disbursments AS d ON d.order_id = o.id
-    LEFT JOIN monthly_fees AS m ON m.disbursment_id = d.id
-    GROUP  BY year"
+    "SELECT
+      EXTRACT(YEAR FROM o.created_at) AS year,
+      Count(d.id) AS ordres,
+      SUM(d.merchant_payment) As merchant_payment,
+      SUM(o.amount) AS total_order_amount,
+      Count(mf.id) AS total_monthly_fee_count,
+      SUM(mf.amount) AS total_monthly_fee
+    FROM
+      orders AS o
+    JOIN
+      disbursments AS d ON o.id = d.order_id
+    LEFT JOIN
+      monthly_fees AS mf ON d.id = mf.disbursment_id
+    GROUP BY
+      year"
   end
 end
-
-# Order.
-    #   left_joins(disbursment: :monthly_fee).
-    #   group("to_char(orders.created_at, 'YYYY')").
-    #   pluck("
-    #     Count(disbursments.id),
-    #     SUM(disbursments.merchant_payment),
-    #     sum(orders.amount),
-    #     Count(monthly_fee.id),
-    #     sum(monthly_fee.amount)"
-    #   )
