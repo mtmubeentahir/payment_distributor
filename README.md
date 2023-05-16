@@ -47,3 +47,20 @@ redis
 
 And now you can visit the site with the URL http://localhost:3000
 
+
+
+### UI Walk Through
+This page shows the list of merchants. URL http://localhost:3000/merchants
+![Screenshot 2023-05-16 at 4 46 24 PM](https://github.com/mtmubeentahir/payment_distributor/assets/20140757/76844fdb-645a-4214-acf5-40a742f85323)
+
+This page shows the list of orders. URL http://localhost:3000/orders
+![Screenshot 2023-05-16 at 5 47 31 PM](https://github.com/mtmubeentahir/payment_distributor/assets/20140757/a4f297f8-3605-4c47-bf3b-2fc8388e017f)
+
+
+This page shows the Disbursment Report. http://localhost:3000/
+![Screenshot 2023-05-16 at 4 46 14 PM](https://github.com/mtmubeentahir/payment_distributor/assets/20140757/808ebb6c-387c-4dbd-86ea-81ead3142b13)
+
+
+
+
+
