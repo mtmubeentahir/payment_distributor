@@ -25,9 +25,13 @@ class OrderDisbursment
 
   def create(order, order_amount, commission, monthly_fee)
     merchant_payment = (order_amount - commission).round(2)
-    ActiveRecord::Base.transaction do
-      dis = order.create_disbursment(commission: commission, merchant_payment: merchant_payment)
-      dis.create_monthly_fee(amount: monthly_fee) if monthly_fee > 0.0
-    end
+    # ActiveRecord::Base.transaction do
+    #   dis = order.create_disbursment(commission: commission, merchant_payment: merchant_payment)
+    #   dis.create_monthly_fee(amount: monthly_fee) if monthly_fee > 0.0
+    # end
+
+    disbursment = order.build_disbursment(commission: commission, merchant_payment: merchant_payment)
+    disbursment.build_monthly_fee(amount: monthly_fee) if monthly_fee > 0.0
+    disbursment.save
   end
 end

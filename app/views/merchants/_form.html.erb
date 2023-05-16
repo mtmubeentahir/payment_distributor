@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :frequency, style: "display: block" %>
-    <%= form.number_field :frequency %>
+    <%= form.select :frequency, Merchant.frequencies.keys.map{ |key| [key.humanize, key] }, selected: @merchant.frequency %>
   </div>
 
   <div>
