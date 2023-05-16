@@ -1,7 +1,7 @@
 class OrderDisbursment
   def call
     merchants.each do |mer|
-      orders.each do |order|
+      orders(mer).each do |order|
         order_amount = order.amount.to_f.round(2)
         next if order.disbursment
 
