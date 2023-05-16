@@ -22,7 +22,8 @@ puts "Merchants Loaded"
 #
 #
 # Load All Orders to DB
-puts "Orders data is populating and procesing disbursment"
+puts "Orders data is populating and procesing disbursment, Sorry for inconvienence, It might take 3 to 7 minute"
+puts "It has to process the 400k records to give you the big data instead of empty project"
 orders = []
 CSV.foreach("#{Rails.root}/lib/orders.csv", col_sep: ';', headers: true) do |row|
   o_amount = row['amount'].to_f.round(2)

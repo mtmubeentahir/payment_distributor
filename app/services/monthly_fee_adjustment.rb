@@ -39,6 +39,10 @@ class MonthlyFeeAdjustment
 
   def lsat_month_commission
     orders = @merchant.orders.joins(:disbursment)
+    # Added this check as i dont have data in CSV for lsat 2 months so when i create new user it picks the last month data
+    # So this will consider the last order month as last month
+    # in real scenatio i believe it wont be the case 
+    # but if you want to charge the free month then the below commented code can full fill the scenario
     last_order_date = orders.order("orders.created_at").last&.created_at
 
     return 'No Previous Data' unless last_order_date  # just to handle safe case
