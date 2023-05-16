@@ -1,3 +1,5 @@
+# process all the new orders for  disbursment 
+
 class OrderDisbursment
   def call
     merchants.each do |mer|
@@ -15,10 +17,13 @@ class OrderDisbursment
   end
 
   private
+
+  # This will returns the date if the weekly or daily condition matches
   def merchants
     Merchant.with_daily_freq.or(Merchant.with_weekly_freq.same_day).includes(:orders)
   end
 
+  # This will returns the order with no disbursments
   def orders(mer)
     mer.orders.includes(:disbursment).where(disbursment: {order_id: nil})
   end
@@ -30,6 +35,7 @@ class OrderDisbursment
     #   dis.create_monthly_fee(amount: monthly_fee) if monthly_fee > 0.0
     # end
 
+    # WE can do this with single insertion operation so i avoided transaction block here
     disbursment = order.build_disbursment(commission: commission, merchant_payment: merchant_payment)
     disbursment.build_monthly_fee(amount: monthly_fee) if monthly_fee > 0.0
     disbursment.save

@@ -48,6 +48,9 @@ redis
 And now you can visit the site with the URL http://localhost:3000
 
 
+### ERD
+
+
 
 ### UI Walk Through
 This page shows the list of merchants. URL http://localhost:3000/merchants
