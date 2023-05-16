@@ -49,6 +49,9 @@ And now you can visit the site with the URL http://localhost:3000
 
 
 ### ERD
+<img width="365" alt="Screenshot 2023-05-16 at 8 25 30 PM" src="https://github.com/mtmubeentahir/payment_distributor/assets/20140757/6747289d-51e7-41ef-bedd-9687dc91a94f">
+
+
 
 
 
